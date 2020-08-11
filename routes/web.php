@@ -23,6 +23,9 @@ Route::namespace('admin')
     ->middleware(['auth'])
     ->group(function () {
         Route::get('dashboard', 'DashboardController')->name('dashboard');
+        Route::get('criteria', 'CriteriaController@index')->name('criteria.index');
+        Route::post('criteria/update', 'CriteriaController@update')->name('criteria.update');
+        Route::get('subcriteria', 'SubcriteriaController@index')->name('subcriteria.index');
     });
 
 
