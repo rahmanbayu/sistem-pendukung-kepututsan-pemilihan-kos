@@ -144,12 +144,24 @@
         </tr>
       </thead>
       <tbody>
+        
+        @php
+        // dd($ranking);
+        usort($ranking, function ($item1, $item2) {
+          return $item2['nilai'] <=> $item1['nilai'];
+          });
+        $a = 1;
+        @endphp
+
         @foreach ($ranking as $kos)            
         <tr>
           <td width="33%">{{ $kos['name'] }}</td>
           <td width="33%">{{ $kos['nilai'] }}</td>
-          <td width="33%">Peringkat 1</td>
+          <td width="33%">Peringkat {{ $a }}</td>
         </tr>
+        @php
+            $a++
+        @endphp
         @endforeach
       </tbody>
     </table>
