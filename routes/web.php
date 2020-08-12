@@ -25,7 +25,9 @@ Route::namespace('admin')
         Route::get('dashboard', 'DashboardController')->name('dashboard');
         Route::get('criteria', 'CriteriaController@index')->name('criteria.index');
         Route::post('criteria/update', 'CriteriaController@update')->name('criteria.update');
-        Route::get('subcriteria', 'SubcriteriaController@index')->name('subcriteria.index');
+
+        Route::get('subcriteria/{subcriteria}', 'SubcriteriaController@index')->name('subcriteria.index');
+        Route::put('subcriteria/{subcriteria}/update', 'SubcriteriaController@update')->name('subcriteria.update');
     });
 
 

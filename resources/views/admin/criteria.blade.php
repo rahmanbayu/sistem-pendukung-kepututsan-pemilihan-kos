@@ -63,6 +63,9 @@
         </section>
 
         <section class="table-criteria mt-3">
+          <div class="d-flex justify-content-end">
+            <p>Edit Oleh: {{ ucwords($criteria->admin->name) }}</p>
+          </div>
           <table class="table table-bordered table-inverse table-responsive-md">
             <thead class="thead-inverse">
               <tr>
