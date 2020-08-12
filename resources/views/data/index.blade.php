@@ -144,11 +144,13 @@
         </tr>
       </thead>
       <tbody>
+        @foreach ($ranking as $kos)            
         <tr>
-          <td width="33%">Kaswari</td>
-          <td width="33%">0.3434534634</td>
+          <td width="33%">{{ $kos['name'] }}</td>
+          <td width="33%">{{ $kos['nilai'] }}</td>
           <td width="33%">Peringkat 1</td>
         </tr>
+        @endforeach
       </tbody>
     </table>
   </div>
