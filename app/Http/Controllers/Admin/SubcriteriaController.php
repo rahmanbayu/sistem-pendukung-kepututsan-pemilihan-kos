@@ -15,7 +15,13 @@ class SubcriteriaController extends Controller
     {
         $titleandtable = SubcriteriaServices::getTitleAndTable($subcriteria->id);
         $oposite = SubcriteriaServices::getOposite($subcriteria);
-        return view('admin.subcriteria', ['subcriteria' => $subcriteria, 'titleandtable' => $titleandtable, 'oposite' => $oposite]);
+        $jumlahkolom = SubcriteriaServices::getJumlahKolom($subcriteria, $oposite);
+        $normalisasi = SubcriteriaServices::getNormalisasi($subcriteria, $oposite,  $jumlahkolom);
+        $jumlahbaris = SubcriteriaServices::getJumlahBaris($normalisasi);
+        $prioritas = SubcriteriaServices::getPrioritas($jumlahbaris);
+        $reports = SubcriteriaServices::getReports($jumlahkolom, $prioritas);
+
+        return view('admin.subcriteria', ['subcriteria' => $subcriteria, 'titleandtable' => $titleandtable, 'oposite' => $oposite, 'jumlahkolom' => $jumlahkolom, 'normalisasi' => $normalisasi, 'jumlahbaris' => $jumlahbaris, 'prioritas' => $prioritas, 'reports' => $reports]);
     }
 
     public function update(UpdateSubcriteriaRequest $request, Subcriteria $subcriteria)

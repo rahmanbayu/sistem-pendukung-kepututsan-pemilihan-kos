@@ -212,7 +212,112 @@
               <td>{{ $oposite['skurang_kurang'] }}</td>
               <td>1</td>
             </tr>
+            <tr>
+              <th>Jumlah</th>
+              <th>{{ $jumlahkolom['sbaik'] }}</th>
+              <th>{{ $jumlahkolom['baik'] }}</th>
+              <th>{{ $jumlahkolom['sedang'] }}</th>
+              <th>{{ $jumlahkolom['kurang'] }}</th>
+              <th>{{ $jumlahkolom['skurang'] }}</th>
+            </tr>
         </form>
+        </tbody>
+    </table>
+  </section>
+
+  <section class="table-normalisasi">
+    <div class="text-center">
+      <p class="font-weight-bold">Normalisasi Matrix</p>
+    </div>
+
+    <table class="table table-bordered table-inverse table-responsive-md">
+      <thead class="thead-inverse">
+        <tr>
+          <th width="12.5%"></th>
+          <th width="12.5%">{{ $titleandtable[0] }}</th>
+          <th width="12.5%">{{ $titleandtable[1] }}</th>
+          <th width="12.5%">{{ $titleandtable[2] }}</th>
+          <th width="12.5%">{{ $titleandtable[3] }}</th>
+          <th width="12.5%">{{ $titleandtable[4] }}</th>
+          <th width="12.5%">Jumlah</th>
+          <th width="12.5%">Prioritas</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>{{ $titleandtable[0] }}</th>
+            <td>{{ $normalisasi['sbaik_sbaik'] }}</td>
+            <td>{{ $normalisasi['sbaik_baik'] }}</td>
+            <td>{{ $normalisasi['sbaik_sedang'] }}</td>
+            <td>{{ $normalisasi['sbaik_kurang'] }}</td>
+            <td>{{ $normalisasi['sbaik_skurang'] }}</td>
+            <th>{{ $jumlahbaris['sbaik'] }}</th>
+            <th>{{ $prioritas['sbaik'] }}</th>
+          </tr>
+          <tr>
+            <th>{{ $titleandtable[1] }}</th>
+            <td>{{ $normalisasi['baik_sbaik'] }}</td>
+            <td>{{ $normalisasi['baik_baik'] }}</td>
+            <td>{{ $normalisasi['baik_sedang'] }}</td>
+            <td>{{ $normalisasi['baik_kurang'] }}</td>
+            <td>{{ $normalisasi['baik_skurang'] }}</td>
+            <th>{{ $jumlahbaris['baik'] }}</th>
+            <th>{{ $prioritas['baik'] }}</th>
+
+          </tr>
+          <tr>
+            <th>{{ $titleandtable[2] }}</th>
+            <td>{{ $normalisasi['sedang_sbaik'] }}</td>
+            <td>{{ $normalisasi['sedang_baik'] }}</td>
+            <td>{{ $normalisasi['sedang_sedang'] }}</td>
+            <td>{{ $normalisasi['sedang_kurang'] }}</td>
+            <td>{{ $normalisasi['sedang_skurang'] }}</td>
+            <th>{{ $jumlahbaris['sedang'] }}</th>
+            <th>{{ $prioritas['sedang'] }}</th>
+          </tr>
+          <tr>
+            <th>{{ $titleandtable[3] }}</th>
+            <td>{{ $normalisasi['kurang_sbaik'] }}</td>
+            <td>{{ $normalisasi['kurang_baik'] }}</td>
+            <td>{{ $normalisasi['kurang_sedang'] }}</td>
+            <td>{{ $normalisasi['kurang_kurang'] }}</td>
+            <td>{{ $normalisasi['kurang_skurang'] }}</td>
+            <th>{{ $jumlahbaris['kurang'] }}</th>
+            <th>{{ $prioritas['kurang'] }}</th>
+          </tr>
+          <tr>
+            <th>{{ $titleandtable[4] }}</th>
+            <td>{{ $normalisasi['skurang_sbaik'] }}</td>
+            <td>{{ $normalisasi['skurang_baik'] }}</td>
+            <td>{{ $normalisasi['skurang_sedang'] }}</td>
+            <td>{{ $normalisasi['skurang_kurang'] }}</td>
+            <td>{{ $normalisasi['skurang_skurang'] }}</td>
+            <th>{{ $jumlahbaris['skurang'] }}</th>
+            <th>{{ $prioritas['skurang'] }}</th>
+          </tr>
+
+        </tbody>
+    </table>
+  </section>
+
+  <section class="table-reports">
+    <div class="text-center">
+      <p class="font-weight-bold">Keterangan</p>
+    </div>
+    <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th>Lambda Max</th>
+            <td>{{ $reports['lambdamax'] }}</td>
+          </tr>
+          <tr>
+            <th>Consistency Index</th>
+            <td>{{ $reports['ci'] }}</td>
+          </tr>
+          <tr>
+            <th>Consistency Ratio</th>
+            <td class="{{ $reports['cr'] < 0.1 ? 'text-success' : 'text-danger' }}">{{ $reports['cr'] }}</td>
+          </tr>
         </tbody>
     </table>
   </section>
@@ -225,6 +330,7 @@
     <style>
       .form-group{
         margin: 0 !important;
+        min-width: 100px;
       }
     </style>
 @endpush
